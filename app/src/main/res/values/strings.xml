@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ParkingHelper</string>
+    <string name="lot_favorite_label">Favorite</string>
+    <string name="show_all_lots">Show All</string>
+    <string name="show_favorite_lots">Show Favorites</string>
+    <string name="lot_title_label">Title</string>
+</resources>
