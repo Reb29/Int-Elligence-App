@@ -3,6 +3,7 @@
 <android.support.v4.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -15,32 +16,29 @@
 
         <TextView
 
-            android:id="@+id/lot_name_textView"
+            android:id="@+id/lot_name_fragment"
             style="?android:listSeparatorTextViewStyle"
-            android:layout_width="0dp"
-            android:layout_height="30dp"
+            android:layout_width="265dp"
+            android:layout_height="40dp"
             android:layout_marginStart="8dp"
-            android:layout_marginEnd="70dp"
-            android:text="@string/lot_title_label"
-            app:layout_constraintEnd_toStartOf="@+id/guideline5"
-            app:layout_constraintHorizontal_bias="0.0"
+            android:layout_marginTop="8dp"
+            android:text="@string/lot_name"
+            android:textSize="15dp"
             app:layout_constraintStart_toStartOf="@+id/guideline4"
-            app:layout_constraintTop_toBottomOf="@+id/lot_name_textView2" />
+            app:layout_constraintTop_toTopOf="@+id/guideline6" />
 
         <TextView
 
-            android:id="@+id/lot_name_textView2"
+            android:id="@+id/lot_capacity_fragment"
             style="?android:listSeparatorTextViewStyle"
-            android:layout_width="0dp"
-            android:layout_height="30dp"
+            android:layout_width="265dp"
+            android:layout_height="40dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="70dp"
-            android:text="@string/lot_title_label"
-            app:layout_constraintEnd_toStartOf="@+id/guideline5"
-            app:layout_constraintHorizontal_bias="1.0"
+            android:layout_marginTop="12dp"
+            android:text="@string/lot_capacity"
+            android:textSize="15dp"
             app:layout_constraintStart_toStartOf="@+id/guideline4"
-            app:layout_constraintTop_toTopOf="@+id/guideline6" />
+            app:layout_constraintTop_toBottomOf="@+id/lot_name_fragment" />
 
         <Switch
             android:id="@+id/lot_favorite"
@@ -49,7 +47,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:baselineAligned="false"
-            app:layout_constraintStart_toEndOf="@+id/lot_name_textView"
+            app:layout_constraintStart_toEndOf="@+id/lot_capacity_fragment"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
 
@@ -60,7 +58,8 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="Favorite"
-            app:layout_constraintStart_toEndOf="@+id/lot_name_textView"
+            android:textSize="15dp"
+            app:layout_constraintStart_toEndOf="@+id/lot_name_fragment"
             app:layout_constraintTop_toTopOf="@+id/guideline6" />
 
         <android.support.constraint.Guideline
@@ -86,14 +85,14 @@
 
         <ImageView
             android:id="@+id/lot_imageView"
-            android:layout_width="333dp"
-            android:layout_height="503dp"
+            android:layout_width="353dp"
+            android:layout_height="449dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toStartOf="@+id/guideline5"
             app:layout_constraintStart_toStartOf="@+id/guideline4"
-            app:layout_constraintTop_toBottomOf="@+id/lot_name_textView"
+            app:layout_constraintTop_toBottomOf="@+id/lot_capacity_fragment"
             app:srcCompat="@mipmap/ic_launcher" />
 
     </android.support.constraint.ConstraintLayout>

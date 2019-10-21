@@ -1,14 +1,12 @@
 package com.example.parkinghelper;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -37,15 +35,15 @@ public class LotListFragment extends Fragment {
             super(inflater.inflate(R.layout.list_item_lot, parent, false));
 
             itemView.setOnClickListener(this);
-            mLotNameTextView = itemView.findViewById(R.id.lot_description);
-            mCapacityTextView = itemView.findViewById(R.id.lot_capacity_textView);
+            mLotNameTextView = itemView.findViewById(R.id.lot_name);
+            mCapacityTextView = itemView.findViewById(R.id.lot_capacity);
             mLotFavorite = itemView.findViewById(R.id.lot_favorite);
         }
 
         public void bind(Lot lot) {
             mLot = lot;
-            mCapacityTextView.setText(mLot.getCurrentCapacity() + "/" + mLot.getMaxCapacity());
-            mLotNameTextView.setText(mLot.getName());
+            mCapacityTextView.setText("Lot Capacity " + mLot.getCurrentCapacity() + "/" + mLot.getMaxCapacity());
+            mLotNameTextView.setText("Lot " + mLot.getName());
             mLotFavorite.setVisibility(lot.isFavorite() ? View.VISIBLE : View.INVISIBLE);
 
 

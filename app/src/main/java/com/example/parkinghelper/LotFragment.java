@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.CompoundButton;
+import android.widget.TextView;
 
 import com.example.parkinghelper.models.Lot;
 import com.example.parkinghelper.models.LotList;
@@ -26,6 +27,8 @@ public class LotFragment extends Fragment {
 
     private Lot mLot;
 
+    private TextView mCapacityTextView;
+    private TextView mLotNameTextView;
     private Switch mSwitch;
     private ImageView mImageView;
     private File mImageFile;
@@ -43,6 +46,7 @@ public class LotFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         String lotName = (String) getArguments().getSerializable(ARG_LOT_NAME);
         mLot = LotList.get(getActivity()).getLot(lotName);
         mImageFile = LotList.get(getActivity()).getImageFile(mLot);
@@ -53,6 +57,12 @@ public class LotFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_lot, container, false);
+
+        mCapacityTextView = v.findViewById(R.id.lot_capacity_fragment);
+        mLotNameTextView = v.findViewById(R.id.lot_name_fragment);
+
+        mCapacityTextView.setText("Lot Capacity " + mLot.getCurrentCapacity() + "/" + mLot.getMaxCapacity());
+        mLotNameTextView.setText("Lot " + mLot.getName());
 
         mSwitch = v.findViewById(R.id.lot_favorite);
         mSwitch.setChecked(mLot.isFavorite());
@@ -74,11 +84,6 @@ public class LotFragment extends Fragment {
         return v;
     }
 
-    /*@Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.fragment_lot, menu);
-    }*/
 
 
     @Override

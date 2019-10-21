@@ -3,5 +3,6 @@
     <string name="lot_favorite_label">Favorite</string>
     <string name="show_all_lots">Show All</string>
     <string name="show_favorite_lots">Show Favorites</string>
-    <string name="lot_title_label">Title</string>
+    <string name="lot_name">Lot Name</string>
+    <string name="lot_capacity">Lot Capacity</string>
 </resources>

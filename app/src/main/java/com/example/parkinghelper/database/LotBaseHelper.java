@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class LotBaseHelper extends SQLiteOpenHelper {
 
     private static final int VERSION = 1;
-    private static final String DATABASE_NAME = "testab.db";
+    private static final String DATABASE_NAME = "testaf.db";
 
     public LotBaseHelper(Context context)
     {

@@ -5,18 +5,20 @@
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/colorLtBlue"
+    android:clipChildren="false"
+    android:clipToPadding="false"
     android:orientation="vertical"
     android:padding="8dp"
     tools:layout_editor_absoluteY="81dp">
 
     <TextView
-        android:id="@+id/lot_description"
-        android:layout_width="115dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:id="@+id/lot_name"
+        android:layout_width="96dp"
+        android:layout_height="52dp"
         android:text="Lot Name"
         android:textColor="@android:color/black"
+        android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_conversion_absoluteHeight="19dp"
@@ -36,13 +38,12 @@
         app:srcCompat="@drawable/ic_menu_is_favorite" />
 
     <TextView
-        android:id="@+id/lot_capacity_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:id="@+id/lot_capacity"
+        android:layout_width="114dp"
+        android:layout_height="52dp"
         android:text="Lot Capacity"
-        app:layout_constraintStart_toEndOf="@+id/lot_description"
+        android:textSize="15dp"
+        app:layout_constraintStart_toEndOf="@+id/lot_name"
         app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

@@ -25,6 +25,7 @@ public class LotList {
             sLotList = new LotList(context);
 
             List<Lot> initialLots = ParkingLotConfig.initializeLots();
+
         for (Lot lot  : initialLots) {
             sLotList.addLot(lot);
         }
@@ -35,7 +36,11 @@ public class LotList {
 
     public void addLot(Lot l) {
         ContentValues values = getContentValues(l);
+
+        if (getLot(l.getName()) == null)
         mDatabase.insert(LotDbSchema.LotTable.NAME, null, values);
+        else
+        mDatabase.update(LotDbSchema.LotTable.NAME, values, null, null);
     }
 
     private LotList(Context context) {
