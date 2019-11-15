@@ -4,12 +4,10 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-
 import com.example.parkinghelper.database.LotBaseHelper;
 import com.example.parkinghelper.database.LotCursorWrapper;
 import com.example.parkinghelper.database.LotDbSchema;
-import com.example.parkinghelper.utils.ParkingLotConfig;
-
+import com.example.parkinghelper.utils.ParkingLotLoader;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,13 +21,12 @@ public class LotList {
        if(sLotList == null)
        {
             sLotList = new LotList(context);
+       }
 
-            List<Lot> initialLots = ParkingLotConfig.initializeLots();
-
+        List<Lot> initialLots = ParkingLotLoader.initializeLots();
         for (Lot lot  : initialLots) {
             sLotList.addLot(lot);
         }
-       }
 
         return sLotList;
     }
@@ -40,7 +37,7 @@ public class LotList {
         if (getLot(l.getName()) == null)
         mDatabase.insert(LotDbSchema.LotTable.NAME, null, values);
         else
-        mDatabase.update(LotDbSchema.LotTable.NAME, values, null, null);
+        updateLot(l);
     }
 
     private LotList(Context context) {
@@ -91,7 +88,7 @@ public class LotList {
     }
 
     public Lot getLot(String name) {
-        LotCursorWrapper cursor = queryLots(LotDbSchema.LotTable.Cols.LOTNAME + " =?",
+        LotCursorWrapper cursor = queryLots(LotDbSchema.LotTable.Cols.LOTNAME + "=?",
                 new String[] { name});
         try{
             if(cursor.getCount() == 0)
@@ -110,9 +107,10 @@ public class LotList {
     public void updateLot(Lot lot) {
         String name = lot.getName();
         ContentValues values = getContentValues(lot);
+        values.remove(LotDbSchema.LotTable.Cols.FAVORITE);
 
         mDatabase.update(LotDbSchema.LotTable.NAME, values,
-                LotDbSchema.LotTable.Cols.LOTNAME + " =?",
+                LotDbSchema.LotTable.Cols.LOTNAME + "=?",
                 new String[] { name });
     }
 

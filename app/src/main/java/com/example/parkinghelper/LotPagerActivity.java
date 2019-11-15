@@ -31,6 +31,8 @@ public class LotPagerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lot_pager);
 
+
+
         String lotName = (String) getIntent().getSerializableExtra(EXTRA_LOT_NAME);
 
         mViewPager = findViewById(R.id.lot_view_pager);

@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class LotBaseHelper extends SQLiteOpenHelper {
 
     private static final int VERSION = 1;
-    private static final String DATABASE_NAME = "testaf.db";
+    private static final String DATABASE_NAME = "testba.db";
 
     public LotBaseHelper(Context context)
     {
@@ -17,8 +17,7 @@ public class LotBaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
         sqLiteDatabase.execSQL("create table " + LotDbSchema.LotTable.NAME + "(" +
-                " varchar primary key UNIQUE, " +
-                LotDbSchema.LotTable.Cols.LOTNAME + ", " +
+                LotDbSchema.LotTable.Cols.LOTNAME + " NOT NULL UNIQUE, " +
                 LotDbSchema.LotTable.Cols.MAXCAPACITY + ", " +
                 LotDbSchema.LotTable.Cols.CURRENTCAPACITY + ", " +
                 LotDbSchema.LotTable.Cols.FAVORITE + ")");

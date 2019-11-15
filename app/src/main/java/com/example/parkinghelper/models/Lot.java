@@ -3,7 +3,6 @@ package com.example.parkinghelper.models;
 
 public class Lot {
 
-
     private boolean mFavorite;
     private int mMaxCapacity;
     private int mCurrentCapacity;
@@ -30,6 +29,7 @@ public class Lot {
         mLotName = name;
         mMaxCapacity = maxCap;
         mCurrentCapacity = currentCap;
+        mFavorite = false;
     }
 
     public boolean isFavorite() {

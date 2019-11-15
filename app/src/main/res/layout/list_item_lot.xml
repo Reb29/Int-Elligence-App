@@ -7,9 +7,10 @@
     android:layout_height="wrap_content"
     android:background="@color/colorLtBlue"
     android:clipChildren="false"
+    android:padding="6dp"
     android:clipToPadding="false"
     android:orientation="vertical"
-    android:padding="8dp"
+
     tools:layout_editor_absoluteY="81dp">
 
     <TextView
