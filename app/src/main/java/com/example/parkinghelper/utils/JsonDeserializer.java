@@ -1,5 +1,7 @@
 package com.example.parkinghelper.utils;
 
+import android.util.Log;
+
 import com.example.parkinghelper.models.Lot;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

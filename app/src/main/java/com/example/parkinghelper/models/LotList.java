@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import com.example.parkinghelper.database.LotBaseHelper;
 import com.example.parkinghelper.database.LotCursorWrapper;
 import com.example.parkinghelper.database.LotDbSchema;
-import com.example.parkinghelper.utils.ParkingLotLoader;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,12 +22,6 @@ public class LotList {
        {
             sLotList = new LotList(context);
        }
-
-        List<Lot> initialLots = ParkingLotLoader.initializeLots();
-        for (Lot lot  : initialLots) {
-            sLotList.addLot(lot);
-        }
-
         return sLotList;
     }
 
@@ -108,6 +102,16 @@ public class LotList {
         String name = lot.getName();
         ContentValues values = getContentValues(lot);
         values.remove(LotDbSchema.LotTable.Cols.FAVORITE);
+
+        mDatabase.update(LotDbSchema.LotTable.NAME, values,
+                LotDbSchema.LotTable.Cols.LOTNAME + "=?",
+                new String[] { name });
+    }
+
+    public void updateFavorite(Lot lot) {
+        String name = lot.getName();
+        ContentValues values = new ContentValues();
+        values.put(LotDbSchema.LotTable.Cols.FAVORITE, lot.isFavorite() ? 1 : 0);
 
         mDatabase.update(LotDbSchema.LotTable.NAME, values,
                 LotDbSchema.LotTable.Cols.LOTNAME + "=?",

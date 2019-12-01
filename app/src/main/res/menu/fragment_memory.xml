@@ -3,11 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/delete_memory"
-        android:icon="@drawable/ic_menu_remove"
-        android:title="@string/show_all_lots"
-        app:showAsAction="ifRoom|withText" />
-    <item
         android:id="@+id/send_memory"
         android:icon="@drawable/ic_menu_send"
         android:title="@string/show_all_lots"

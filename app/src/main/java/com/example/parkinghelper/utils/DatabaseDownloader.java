@@ -47,9 +47,9 @@ import java.net.URL;
 
             } catch(IOException e) {
                 e.printStackTrace();
-                result = "There was a problem loading the file.";
+                result = "ERROR";
             }
-            Log.d("FUCK", result);
+            Log.d("Could not connect to server.", result);
             return result;
         }
 

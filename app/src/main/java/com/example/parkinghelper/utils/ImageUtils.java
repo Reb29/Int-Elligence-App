@@ -25,4 +25,8 @@ public class ImageUtils {
 
         return BitmapFactory.decodeFile(path, options);
     }
+
+    public void downloadImage(String lotname){
+
+    }
 }

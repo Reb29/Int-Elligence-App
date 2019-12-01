@@ -153,14 +153,19 @@ public class LotListFragment extends Fragment implements AsyncResponse {
 
     @Override
     public void onEnd(String output) {  //Probably a better way to do this but async is confusing.
+
+
         JsonDeserializer jD = new JsonDeserializer();
-        List<Lot> lots = jD.deserialize(output);
 
-        LotList lotList = LotList.get(getActivity());
+        if (!output.equals("ERROR")) {
+            List<Lot> lots = jD.deserialize(output);
 
-        for (Lot lot : lots) {
-            Log.d("FUCK", lot.getName() + " " + lot.getMaxCapacity() + " " + lot.getCurrentCapacity());
-            lotList.addLot(lot);
+            LotList lotList = LotList.get(getActivity());
+
+            for (Lot lot : lots) {
+                Log.d("Testing", lot.getName() + " " + lot.getMaxCapacity() + " " + lot.getCurrentCapacity());
+                lotList.addLot(lot);
+            }
         }
     }
 
@@ -171,6 +176,7 @@ public class LotListFragment extends Fragment implements AsyncResponse {
         dbD.execute();
 
         LotList lotList = LotList.get(getActivity());
+
         List<Lot> lots;
 
         if (favoriteSelected)

@@ -29,7 +29,6 @@ public class Lot {
         mLotName = name;
         mMaxCapacity = maxCap;
         mCurrentCapacity = currentCap;
-        mFavorite = false;
     }
 
     public boolean isFavorite() {

@@ -1,7 +1,5 @@
 package com.example.parkinghelper;
 
-
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,14 +9,11 @@ import android.widget.ImageView;
 import android.widget.Switch;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.widget.CompoundButton;
 import android.widget.TextView;
-
 import com.example.parkinghelper.models.Lot;
 import com.example.parkinghelper.models.LotList;
-import com.example.parkinghelper.utils.ImageUtils;
-import java.io.File;
+import com.squareup.picasso.Picasso;
 
 
 public class LotFragment extends Fragment {
@@ -31,7 +26,6 @@ public class LotFragment extends Fragment {
     private TextView mLotNameTextView;
     private Switch mSwitch;
     private ImageView mImageView;
-    private File mImageFile;
 
 
     public static LotFragment newInstance(String lotName) {
@@ -49,7 +43,7 @@ public class LotFragment extends Fragment {
 
         String lotName = (String) getArguments().getSerializable(ARG_LOT_NAME);
         mLot = LotList.get(getActivity()).getLot(lotName);
-        mImageFile = LotList.get(getActivity()).getImageFile(mLot);
+
         setHasOptionsMenu(true);
     }
 
@@ -74,13 +68,9 @@ public class LotFragment extends Fragment {
         });
 
         mImageView = v.findViewById(R.id.lot_imageView);
-        ViewTreeObserver observer = mImageView.getViewTreeObserver();
-        observer.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-            @Override
-            public void onGlobalLayout() {
-                updatePhotoView();
-            }
-        });
+
+        updatePhoto();
+
         return v;
     }
 
@@ -90,15 +80,19 @@ public class LotFragment extends Fragment {
     public void onPause() {
         super.onPause();
 
-        LotList.get(getActivity()).updateLot(mLot);
+        LotList.get(getActivity()).updateFavorite(mLot);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
 
-    public void updatePhotoView(){
-        if(mImageView != null && mImageFile.exists()){
-            Bitmap bitmap = ImageUtils.getScaledBitmap(mImageFile.getPath(), mImageView.getMeasuredWidth(), mImageView.getMeasuredHeight());
-            mImageView.setImageBitmap(bitmap);
+        updatePhoto();
+    }
+
+    public void updatePhoto(){
+        Picasso.get()
+                .load("http://3.14.150.52:7567/images/Lot_" + mLot.getName())
+                .into(mImageView);
         }
     }
-
-}
