@@ -114,7 +114,7 @@ favorite the specified lot.
 
 
 
-    Installation Instructions(For the app, server, and Rekognition)
+    Installation Instructions
 
 Mobile App - The mobile app will need to be imported from Github and opened from Android Studios. From here you can build the app
 on a mobile device or an emulator. The user will need internet access as information pertaining to the park lots must be downloaded from the provided server.
@@ -123,3 +123,14 @@ Server - The server can be installed on any virtual machine that allows nodejs. 
 incoming traffic. The server will need to have a file called lotdata.json as this is the file the app will download. As implied by the file type, the file needs to be in the json format. Once nodejs is install the program can be run with the command "node server.js".
 
 Rekognition - The repo has a maven file that will automatically import the Rekognition SDK for use. Rekognition requires that it is connected to an active Amazon account as the API calls are tracked and limited to a free tier that includes 5,000 monthly uses. The detectLabels class takes in an image and outputs the number of vehicals that it count. When linked to a database it can be used to values with the returned count.
+
+    List of Repos
+https://github.com/WildWildWes1/Int-Elligence-Database
+
+https://github.com/Reb29/Int-Elligence-App
+
+https://github.com/Reb29/Int-Elligence-Server
+
+https://github.com/Reb29/Int-Elligence-Rekognition
+
+
